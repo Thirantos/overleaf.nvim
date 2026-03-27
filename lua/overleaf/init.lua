@@ -41,7 +41,7 @@ function M.setup(opts)
   config.setup(opts)
 
   -- Default keymaps (prefix: <leader>o for Overleaf)
-  local keys = opts and opts.keys or true
+  local keys = not opts or opts.keys
   if keys then
     local map = vim.keymap.set
     map('n', '<leader>oc', function() M.connect() end, { desc = 'Overleaf: Connect' })
